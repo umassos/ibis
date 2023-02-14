@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+// The FrontEnd Service definition.
+service FrontEndService {
+  // Send an Inference Request
+  rpc InfereImage (InferenceRequest) returns (InferenceResponse) {}
+}
+
+// The request message contains the image name, type and the image itself.
+message InferenceRequest {
+    string image_name = 1;
+    string image_type = 2;
+    bytes image = 3;
+}
+
+// The response message containing the class
+message InferenceResponse {
+  repeated string output_id = 1;//binding names of output
+  repeated bytes output = 2; //outputput value (compressed using zlib)
+  double front_start_time = 3; //Start Time On Front End
+  double pre_process_time = 4; //Processing Time on Front End
+  double gpu_start_time = 5; // Start Time on GPU 
+  double gpu_process_time = 6; //Actual Time on GPU
+  double gpu_end_time = 7; //GPU Leave Time  
+  double gpu_total_time = 8; // GPU End to End Time
+  double front_end_time = 9; // Front End Leave Time
+}

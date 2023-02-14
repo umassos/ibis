@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+// The FrontEnd Service definition.
+service FrontEndServiceTPU {
+  // Send an Inference Request
+  rpc infer (InferenceRequestTPU) returns (InferenceResponseTPU) {};
+  rpc get_status (GetStatus) returns (Status);
+}
+
+// The request message contains the image name, type and the image itself.
+message InferenceRequestTPU {
+    string image_name = 1;
+    string image_type = 2;
+    bytes image = 3;
+}
+
+// The response message containing the class
+message InferenceResponseTPU {
+  // repeated string output_id = 1;//binding names of output
+  repeated bytes output = 1; //outputput value
+  double front_start_time = 2; //Start Time On Front End
+  double pre_process_time = 3; //Processing Time on Front End
+  double tpu_start_time = 4; // Start Time on TPU
+  double tpu_process_time = 5; // Actual Time on TPU
+  double tpu_end_time = 6; // TPU Leave Time
+  double tpu_total_time = 7; // TPU End to End Time
+  double front_end_time = 8; // Front End Leave Time
+}
+
+// Get status request, empty request
+message GetStatus {
+    int32 num_requests = 1;     // Number of requests to sample
+}
+
+// Run time status of the server
+message Status {
+    double input_rate = 1;      // Arrival rate of requests
+    double response_time = 2;   // Mean response time of latest 10 requests
+}

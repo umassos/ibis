@@ -1,0 +1,27 @@
+FROM python:slim-buster
+
+RUN python -m pip install grpcio --ignore-installed
+
+RUN python -m pip install grpcio-tools
+
+RUN python -m pip install Pillow numpy
+
+RUN mkdir /app
+
+ADD backend_service_pb2.py /app/
+
+ADD backend_service_pb2_grpc.py /app/
+
+ADD frontend_service_pb2.py /app/
+
+ADD frontend_service_pb2_grpc.py /app/
+
+ADD server_frontend.py /app/
+
+EXPOSE 8080/tcp
+
+WORKDIR /app/
+
+ENV INPUT_SHAPE=1x3x224x224
+
+ENTRYPOINT python server_frontend.py

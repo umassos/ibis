@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+// The BackEnd Service definition.
+service BackEndService {
+  // Send an Inference Request
+  rpc InfereImage (GPURequest) returns (GPUResponse) {}
+}
+
+// The request message contains the image name, type and the image itself.
+message GPURequest {
+    string image_name = 1;
+    string image_type = 2;
+    bytes image = 3;
+    repeated string output_binding=4;
+}
+
+// The response message containing the class
+message GPUResponse {
+  repeated string output_id = 1;	
+  repeated bytes output = 2;
+  double start_time = 3;
+  double end_time = 4;
+  double gpu_time = 5;
+}

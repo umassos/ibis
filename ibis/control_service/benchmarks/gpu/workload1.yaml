@@ -1,0 +1,169 @@
+# Model workloads for GPU deployment experiment
+---
+model_path: /home/picocluster/workspace/models
+models:
+  - model_name: resnet18
+    model_type: classification
+    input_rate: 10
+    service_rate: 92.3 
+    frontend_memory: 50
+    backend_memory: 700
+    frontend_image: washraf/frontend-nano
+    backend_image: washraf/backend-nano
+    sla: 100
+    wait_time: 0
+    input_shape: 1x3x224x224
+    output_bindings: output
+    build_engine: False 
+    dynamic_shapes: NA
+
+
+  - model_name: googlenet
+    model_type: classification
+    input_rate: 10
+    service_rate: 72
+    frontend_memory: 50
+    backend_memory: 893
+    frontend_image: washraf/frontend-nano
+    backend_image: washraf/backend-nano
+    sla: 100
+    wait_time: 0
+    input_shape: 1x3x224x224
+    output_bindings: output
+    build_engine: False
+    dynamic_shapes: NA
+
+  - model_name: resnet18
+    model_type: classification
+    input_rate: 10
+    service_rate: 92.3
+    frontend_memory: 50
+    backend_memory: 930
+    frontend_image: washraf/frontend-nano
+    backend_image: washraf/backend-nano
+    sla: 100
+    wait_time: 0
+    input_shape: 1x3x224x224
+    output_bindings: output
+    build_engine: False
+    dynamic_shapes: NA
+
+  - model_name: resnet34
+    model_type: classification
+    input_rate: 10
+    service_rate: 51.2
+    frontend_memory: 50
+    backend_memory: 700
+    frontend_image: washraf/frontend-nano
+    backend_image: washraf/backend-nano
+    sla: 150
+    wait_time: 0
+    input_shape: 1x3x224x224
+    output_bindings: output
+    build_engine: False
+    dynamic_shapes: NA
+
+  - model_name: resnet34
+    model_type: classification
+    input_rate: 10
+    service_rate: 51.2
+    frontend_memory: 50
+    backend_memory: 700
+    frontend_image: washraf/frontend-nano
+    backend_image: washraf/backend-nano
+    sla: 150
+    wait_time: 0
+    input_shape: 1x3x224x224
+    output_bindings: output
+    build_engine: False
+    dynamic_shapes: NA
+
+  - model_name: resnet50
+    model_type: classification
+    input_rate: 10
+    service_rate: 34
+    frontend_memory: 50
+    backend_memory: 700
+    frontend_image: washraf/frontend-nano
+    backend_image: washraf/backend-nano
+    sla: 150
+    wait_time: 0
+    input_shape: 1x3x224x224
+    output_bindings: output
+    build_engine: False
+    dynamic_shapes: NA
+
+  - model_name: googlenet
+    model_type: classification
+    input_rate: 10
+    service_rate: 72
+    frontend_memory: 50
+    backend_memory: 893
+    frontend_image: washraf/frontend-nano
+    backend_image: washraf/backend-nano
+    sla: 100
+    wait_time: 0
+    input_shape: 1x3x224x224
+    output_bindings: output
+    build_engine: False
+    dynamic_shapes: NA
+
+  - model_name: resnet50
+    model_type: classification
+    input_rate: 10
+    service_rate: 34
+    frontend_memory: 50
+    backend_memory: 965
+    frontend_image: washraf/frontend-nano
+    backend_image: washraf/backend-nano
+    sla: 150
+    wait_time: 0
+    input_shape: 1x3x224x224
+    output_bindings: output
+    build_engine: False
+    dynamic_shapes: NA
+  
+  - model_name: resnet50
+    model_type: classification
+    input_rate: 10
+    service_rate: 34
+    frontend_memory: 50
+    backend_memory: 965
+    frontend_image: washraf/frontend-nano
+    backend_image: washraf/backend-nano
+    sla: 150
+    wait_time: 0
+    input_shape: 1x3x224x224
+    output_bindings: output
+    build_engine: False
+    dynamic_shapes: NA
+  
+  - model_name: resnet18
+    model_type: classification
+    input_rate: 10
+    service_rate: 92.3
+    frontend_memory: 50
+    backend_memory: 700
+    frontend_image: washraf/frontend-nano
+    backend_image: washraf/backend-nano
+    sla: 100
+    wait_time: 0
+    input_shape: 1x3x224x224
+    output_bindings: output
+    build_engine: False
+    dynamic_shapes: NA
+
+  - model_name: googlenet
+    model_type: classification
+    input_rate: 10
+    service_rate: 72
+    frontend_memory: 50
+    backend_memory: 893
+    frontend_image: washraf/frontend-nano
+    backend_image: washraf/backend-nano
+    sla: 100
+    wait_time: 0
+    input_shape: 1x3x224x224
+    output_bindings: output
+    build_engine: False
+    dynamic_shapes: NA

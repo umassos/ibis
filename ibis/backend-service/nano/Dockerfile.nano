@@ -1,0 +1,40 @@
+FROM nvcr.io/nvidia/l4t-base:r32.4.3
+
+RUN apt-get update && apt-get install -y python3-pip
+
+RUN pip3 install grpcio --ignore-installed
+
+RUN pip3 install grpcio-tools
+
+RUN pip3 install cython
+
+RUN pip3 install numpy
+
+RUN pip3 install pandas minio
+
+RUN pip3 install pycuda
+
+RUN mkdir /app
+
+ADD backend_service_pb2.py /app/
+
+ADD backend_service_pb2_grpc.py /app/
+
+ADD server_backend.py /app/
+
+ADD server_backend_single_process.py /app/
+
+ADD inference_engine.py /app/
+
+ADD common.py /app/
+
+ADD utils.py /app/
+
+ENV WAIT_TIME=5
+
+ENV INPUT_SHAPE=1x3x224x224
+
+WORKDIR /app/
+
+# ENTRYPOINT python3 server_backend.py 
+ENTRYPOINT python3 server_backend_single_process.py

@@ -1,0 +1,42 @@
+# Model workloads for EdgeTPU deployment experiment
+---
+model_dir: /home/picocluster/workspace/edgetpu/models/tflite
+models:
+  - model_filename: efficientnet-S.tflite
+    model_type: classification
+    input_rate: 5
+    service_rate: 98.43
+    switch_overhead: 17.31
+    frontend_memory: 50
+    backend_memory: 100
+    frontend_image: qianlinliang/frontend-edgetpu-pi
+    backend_image: qianlinliang/backend-edgetpu-pi
+    sla: 60
+    input_shape: 1x224x224x3
+
+  - model_filename: mobilenet_v2.tflite
+    model_type: classification
+    input_rate: 9
+    service_rate: 142.85
+    switch_overhead: 10.43
+    frontend_memory: 50
+    backend_memory: 100
+    frontend_image: qianlinliang/frontend-edgetpu-pi
+    backend_image: qianlinliang/backend-edgetpu-pi
+    sla: 1000
+    input_shape: 1x224x224x3
+
+  - model_filename: mobilenet_v2.tflite
+    model_type: classification
+    input_rate: 9
+    service_rate: 142.85
+    switch_overhead: 10.43
+    frontend_memory: 50
+    backend_memory: 100
+    frontend_image: qianlinliang/frontend-edgetpu-pi
+    backend_image: qianlinliang/backend-edgetpu-pi
+    sla: 1000
+    input_shape: 1x224x224x3
+
+
+...
